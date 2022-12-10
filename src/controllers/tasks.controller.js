@@ -1,7 +1,7 @@
 // se importa la conexión a la base de datos
 const pool = require('../db')
 //Hace un select a todas las tareas existentes y las devuelve en un json (por medio del metodo get)
-const getAllTasks = async (req, res) => {
+const getAllTasks = async (req, res, next) => {
     try {
         const allTasks = await pool.query("SELECT * FROM task " );
         res.json(allTasks.rows)

@@ -1,11 +1,14 @@
-const express = require('express');
-const morgan = require('morgan');
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
 
-const taskRoutes = require('./routes/tasks.routes');
+
+const taskRoutes = require("./routes/tasks.routes");
 
 const app = express();
 
-app.use(morgan('dev'))
+app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
 
 app.use(taskRoutes)
@@ -18,4 +21,4 @@ app.use((err,req,res,next) => {
 app.listen(4000)
 console.log('Probando conexion al puerto 4000 ')
 
-//comando para correr run 
+//comando para correr npm run dev
